@@ -3,6 +3,7 @@ import { McpAgent } from "agents/mcp";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 import OAuthProvider from "@cloudflare/workers-oauth-provider";
+import * as WorkspaceTool from './flows/workspaces.js'
 
 export class MyMCP extends McpAgent {
 	server = new McpServer({
@@ -11,9 +12,7 @@ export class MyMCP extends McpAgent {
 	});
 
 	async init() {
-		this.server.tool("add", { a: z.number(), b: z.number() }, async ({ a, b }) => ({
-			content: [{ type: "text", text: String(a + b) }],
-		}));
+    WorkspaceTool.addTool(this.server)
 	}
 }
 
