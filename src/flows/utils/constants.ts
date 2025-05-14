@@ -1,6 +1,6 @@
 import { CallToolResult } from '@modelcontextprotocol/sdk/types.js'
 
-export const FLOWS_API_BASE = 'https://postman.flows.pstmn-beta.io/api'
+export const FLOWS_API_BASE = 'https://macho-dropkick-stun.flows.pstmn.io/api'
 
 export function toolCallError(msg?: string): CallToolResult {
     return {
