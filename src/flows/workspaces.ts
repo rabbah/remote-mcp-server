@@ -31,7 +31,7 @@ export function addTool(server: McpServer) {
 }
 
 async function action({}: ActionInputType): Promise<CallToolResult> {
-  const api = `${FLOWS_API_BASE}/get-workspaces`
+  const api = `${FLOWS_API_BASE}/pm-workspace`
   const response = await getRequest<ActionOutputType[]>(api)
   return response
     ? toolCallJson(response)
